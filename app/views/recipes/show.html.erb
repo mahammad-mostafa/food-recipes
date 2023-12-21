@@ -1,0 +1,12 @@
+<h2><%= @recipe.name.capitalize %></h2>
+<%= link_to("Set #{@recipe.public ? 'private' : 'public'}", edit_recipe_path(@recipe)) %>
+<section>
+  <span>Preparation time: <%= @recipe.preparation_time %> hour(s)</span>
+  <span>Cooking time: <%= @recipe.cooking_time %> hour(s)</span>
+  <p><%= @recipe.description %></p>
+  <%= link_to('Shopping list', '/') %>
+  <%= link_to('Add ingredient', '/') %>
+</section>
+<section>
+  food items
+</section>
