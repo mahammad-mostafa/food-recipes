@@ -166,6 +166,6 @@ I thank everyone at **Microverse** for guiding me through this project.
 
 # 📝 License
 
-This project is [MIT](LICENSE.md) licensed.
+This project is [MIT](LICENSE.md) licensed..
 
 <p align="right"><a href="#title">back to top</a></p>
