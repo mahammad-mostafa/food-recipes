@@ -30,10 +30,10 @@ Check the below contents for further details about this project.
 This repository is about a recipes app with food items & shopping list.
 Porject is built using `Rails` framework with `Ruby`.
 It is configured to use `PostgreSQL` database.
+Integration tests using `Capybara` gem.
 Authentication using `Devise` gem.
 Authorization using `CanCanCan` gem.
 Pagination using `kaminari` gem.
-Unit tests are carried on (models / controller / views) using `RSpec`.
 
 📌 **Tech Stack:**
 - Programming language is `Ruby`
@@ -44,7 +44,7 @@ Unit tests are carried on (models / controller / views) using `RSpec`.
 📌 **Key Features:**
 - Responsive layout to all screen sizes
 - User authentication is required first (`email` / `password`)
-- Users can browse all their recipes & food items lists
+- Navigation menu with links (`home` / `All recipes` / `My foods` / `My recipes`)
 - Only public recipes can be viewed by all users
 - Each food item displays (`name` / `measurement` / `price`)
 - Every recipe contains several food items
@@ -52,7 +52,7 @@ Unit tests are carried on (models / controller / views) using `RSpec`.
 - Recipes can be made public or private
 - Any user can delete his own recipes & food items
 - Recipe owners can add their own food items as ingredients
-- Users generates a shopping list with missing foods items from his own recipes
+- Users generates a shopping list with all unused foods items from their own recipes
 
 <p align="right"><a href="#title">back to top</a></p>
 
@@ -108,6 +108,7 @@ bundle exec rspec -f d
 
 📌 **Derek:**
 - [GitHub](https://github.com/obibaadoma)
+- [LinkedIn](https://linkedin.com/in/derek-akrasi-konadu)
 
 <p align="right"><a href="#title">back to top</a></p>
 
