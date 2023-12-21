@@ -6,8 +6,8 @@ class RecipesController < ApplicationController
   def new; end
 
   def public
-    @recipes = Recipe.accessible_by(current_ability, :browse).includes(:recipe_foods)
-    render('public')
+    @recipes = Recipe.accessible_by(current_ability, :browse).order(id: :desc)
+    render(:public)
   end
 
   def create
