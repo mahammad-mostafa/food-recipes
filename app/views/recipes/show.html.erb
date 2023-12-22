@@ -1,0 +1,19 @@
+<h2><%= @recipe.name.capitalize %></h2>
+<%= link_to("Set #{@recipe.public ? 'private' : 'public'}", edit_recipe_path(@recipe)) %>
+<section>
+  <span>Preparation time: <%= @recipe.preparation_time %> hour(s)</span>
+  <span>Cooking time: <%= @recipe.cooking_time %> hour(s)</span>
+  <p><%= @recipe.description %></p>
+  <%= link_to('Shopping list', shop_foods_path) %>
+  <%= link_to('Add ingredient', new_recipe_recipe_food_path(@recipe)) %>
+</section>
+<section>
+  <div>
+    <span>Food</span><span>Quantity</span><span>Total</span><span>Action</span>
+  </div>
+  <% if @recipe.recipe_foods.length.zero? %>
+    <div><%= render(partial: 'partials/empty', locals: { name: 'ingredients' }) %></div>
+  <% else %>
+    <%= render(partial: 'recipe_foods/recipe_food', collection: @recipe.recipe_foods) %>
+  <% end %>
+</section>
