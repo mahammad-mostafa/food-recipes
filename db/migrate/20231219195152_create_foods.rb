@@ -5,6 +5,7 @@ class CreateFoods < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :measurement_unit
       t.float :price, precision: 10, scale: 2
+      t.integer :quantity
       t.timestamps
     end
   end
