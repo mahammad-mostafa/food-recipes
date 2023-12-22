@@ -1,0 +1,13 @@
+<h2>Shopping list</h2>
+<p>Total amount of items: <%= @foods.length %></p>
+<p>Total price of items: <%= @foods.reduce(0) { |total, item| total + (item.quantity * item.price) } %></p>
+<section>
+  <div>
+    <span>Food</span><span>Quantity</span><span>Total</span>
+  </div>
+  <% if @foods.length.zero? %>
+    <div><%= render(partial: 'partials/empty', locals: { name: 'missing ingredients' }) %></div>
+  <% else %>
+    <%= render(partial: 'food', collection: @foods, locals: { action: false }) %>
+  <% end %>
+</section>

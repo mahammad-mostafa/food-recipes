@@ -1,0 +1,10 @@
+<article>
+    <h3><%= food.name.capitalize %></h3>
+    <span><%= food.quantity %> <%= food.measurement_unit %></span>
+    <% if action %>
+        <span>$<%= food.price %></span>
+        <%= link_to('Delete', food_path(food), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) if can?(:destroy, food) %>
+    <% else %>
+        <span>$<%= food.quantity * food.price %></span>
+    <% end %>
+</article>

@@ -4,12 +4,10 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    can(:create, Recipe)
-    can(:create, Food)
-    can(:create, RecipeFood)
     can(:browse, Recipe, public: true)
-    can(%i[read update destroy], Recipe, user:)
-    can(%i[read destroy], Food, user:)
-    can(%i[read destroy], RecipeFood, recipe: { user: })
+    can(%i[create read update destroy], Recipe, user:)
+    can(%i[create read destroy shop], Food, user:)
+    can(%i[create destroy], RecipeFood, recipe: { user: })
+    can(%i[create destroy], RecipeFood, food: { user: })
   end
 end

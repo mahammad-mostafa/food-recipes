@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
   skip_authorize_resource only: :public
 
   def index; end
-  def new; end
 
   def public
     @recipes = Recipe.accessible_by(current_ability, :browse).order(id: :desc)
