@@ -1,33 +1,32 @@
 class FoodsController < ApplicationController
-  def new
-    @food = Food.new
-    @user = current_user
-  end
+  load_and_authorize_resource
+  skip_authorize_resource only: :shop
 
-  def index
-    @foods = current_user.foods
-    @user = current_user
+  def index; end
+
+  def shop
+    @foods = Food.accessible_by(current_ability).where.missing(:recipe_foods)
+    render(:shop)
   end
 
   def create
-    @food = current_user.foods.new(food_params)
+    @food.user = current_user
     if @food.save
-      redirect_to foods_path
+      redirect_to(foods_path)
     else
-      render :new
+      flash.now[:errors] = @food.errors.full_messages
+      render(:new, status: :unprocessable_entity)
     end
   end
 
   def destroy
-    @food = current_user.foods.find(params[:id])
     @food.destroy
-    flash[:success] = 'Food item deleted successfully.'
-    redirect_to foods_path
+    redirect_to(foods_path, alert: 'Food successfully deleted')
   end
 
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :user, :quantity)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
