@@ -4,13 +4,12 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    can(:read, :recipes, public: true)
-    can(:read, :recipes, user:)
-    can(:create, :recipes)
-    can(:create, :foods)
-    can(:create, :recipes_foods)
-    can(:destroy, :recipes, user:)
-    can(:destroy, :foods, user:)
-    can(:destroy, :recipes_foods, recipe: { user: })
+    can(:create, Recipe)
+    can(:create, Food)
+    can(:create, RecipeFood)
+    can(:browse, Recipe, public: true)
+    can(%i[read update destroy], Recipe, user:)
+    can(%i[read destroy], Food, user:)
+    can(%i[read destroy], RecipeFood, recipe: { user: })
   end
 end

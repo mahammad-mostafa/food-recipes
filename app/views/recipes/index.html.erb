@@ -1,0 +1,9 @@
+<h2>My recipes</h2>
+<%= link_to('New', new_recipe_path) if can?(:read, Recipe) %>
+<section>
+  <% if @recipes.length.zero? %>
+    <%= render(partial: 'partials/empty', locals: { name: 'recipes' }) %>
+  <% else %>
+    <%= render(partial: 'recipe', collection: @recipes, locals: { public: false }) %>
+  <% end %>
+</section>

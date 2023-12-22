@@ -17,34 +17,34 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201456) do
   create_table "foods", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.integer "quantity"
-    t.integer "price"
     t.string "measurement_unit"
+    t.float "price"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_foods_on_user_id"
+  end
+
+  create_table "recipe_foods", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "food_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_recipe_foods_on_food_id"
+    t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
     t.string "description"
-    t.string "preparation_time"
-    t.string "cooking_time"
+    t.float "preparation_time"
+    t.float "cooking_time"
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
-  end
-
-  create_table "recipes_foods", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "recipe_id", null: false
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_recipes_foods_on_recipe_id"
-    t.index ["user_id"], name: "index_recipes_foods_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_201456) do
   end
 
   add_foreign_key "foods", "users"
+  add_foreign_key "recipe_foods", "foods"
+  add_foreign_key "recipe_foods", "recipes"
   add_foreign_key "recipes", "users"
-  add_foreign_key "recipes_foods", "recipes"
-  add_foreign_key "recipes_foods", "users"
 end
