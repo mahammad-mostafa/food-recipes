@@ -1,7 +1,7 @@
 module Setup
   def initializer(action = '')
     user = User.create!(name: 'user', email: 'email@domain.com', password: 'password')
-    params = { user_id: user.id, name: 'recipe', description: 'description', preparation_time: 0.25, cooking_time: 1.25 }
+    params = { user_id: user.id, name: 'recipe', description: 'description', preparation_time: 0.25, cooking_time: 1.5 }
     recipe = Recipe.create!(params)
     food = Food.create!(user_id: user.id, name: 'food', measurement_unit: 'grams', price: 9.20, quantity: 5)
     RecipeFood.create!(recipe_id: recipe.id, food_id: food.id, quantity: 1)
