@@ -1,0 +1,12 @@
+<%= render(partial: 'partials/errors') %>
+<%= form_with(model: @food) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :measurement_unit %>
+  <%= form.text_field :measurement_unit %>
+  <%= form.label :price %>
+  <%= form.number_field :price, min: 0, step: 0.1 %>
+  <%= form.label :quantity %>
+  <%= form.number_field :quantity, min: 1 %>
+  <%= form.submit 'Store' %>
+<% end %>

@@ -1,0 +1,9 @@
+<div class="title"><h2>All recipes</h2></div>
+<section class="list">
+  <% if @recipes.length.zero? %>
+    <%= render(partial: 'partials/empty', locals: { name: 'recipes' }) %>
+  <% else %>
+    <%= render(partial: 'recipe', collection: @recipes, locals: { public: true }) %>
+  <% end %>
+</section>
+<%= render(partial: 'partials/pagination', locals: { list: @recipes }) %>
