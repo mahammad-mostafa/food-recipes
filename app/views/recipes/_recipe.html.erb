@@ -1,17 +1,17 @@
-<article>
+<article class="recipe">
   <div>
     <h3><%= recipe.name.capitalize %></h3>
-    <%= link_to('Details', recipe_path(recipe)) %>
     <% if public %>
-      <span>by: <%= recipe.user.name.capitalize %></span>
-    <% else %>
-      <%= link_to('Delete', recipe_path(recipe), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) if can?(:destroy, recipe) %>
+      <i>by: <%= recipe.user.name.capitalize %></i><br/>
     <% end %>
+    <%= link_to('Details', recipe_path(recipe)) %>
+    <%= link_to('Delete', recipe_path(recipe), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) if can?(:destroy, recipe) %>
   </div>
   <div>
     <% if public %>
       <span>Total food items: <%= recipe.recipe_foods.length %></span>
-      <span>Total price: $<%= recipe.recipe_foods.reduce(0) { |total, item| total + item.price } %></span>
+      <br/><br/>
+      <span>Total price: $<%= recipe.recipe_foods.reduce(0) { |total, item| total + (item.quantity * item.food.price) } %></span>
     <% else %>
       <p><%= recipe.description %></p>
     <% end %>

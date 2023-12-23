@@ -1,5 +1,5 @@
-<h2>All recipes</h2>
-<section>
+<div class="title"><h2>All recipes</h2></div>
+<section class="list">
   <% if @recipes.length.zero? %>
     <%= render(partial: 'partials/empty', locals: { name: 'recipes' }) %>
   <% else %>
