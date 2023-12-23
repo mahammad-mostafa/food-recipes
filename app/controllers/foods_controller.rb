@@ -21,7 +21,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    redirect_to(foods_path, alert: 'Food successfully deleted')
+    redirect_to(foods_path, notice: 'Food successfully deleted')
   end
 
   private
