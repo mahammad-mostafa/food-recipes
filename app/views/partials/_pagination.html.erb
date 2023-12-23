@@ -1,0 +1,12 @@
+<div class="pagination">
+  <% if path_to_prev_page(list) %>
+    <%= link_to('Previous', path_to_prev_page(list)) %>
+  <% else %>
+    <span>Previous</span>
+  <% end %>
+  <% if path_to_next_page(list) %>
+    <%= link_to('Next', path_to_next_page(list)) %>
+  <% else %>
+    <span disabeld>Next</span>
+  <% end %>
+</div>

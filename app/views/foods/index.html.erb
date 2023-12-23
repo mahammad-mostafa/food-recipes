@@ -12,3 +12,4 @@
     <%= render(partial: 'food', collection: @foods, locals: { action: true }) %>
   <% end %>
 </section>
+<%= render(partial: 'partials/pagination', locals: { list: @foods }) %>

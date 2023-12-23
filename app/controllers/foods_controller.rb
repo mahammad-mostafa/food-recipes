@@ -2,7 +2,9 @@ class FoodsController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource only: :shop
 
-  def index; end
+  def index
+    @foods = Food.includes(:user).accessible_by(current_ability).page(params[:page])
+  end
 
   def shop
     @foods = Food.accessible_by(current_ability).where.missing(:recipe_foods)

@@ -34,6 +34,7 @@ Integration tests using `Capybara` gem.
 Authentication using `Devise` gem.
 Authorization using `CanCanCan` gem.
 Pagination using `kaminari` gem.
+Optimized queries with `bullet` gem.
 
 📌 **Tech Stack:**
 - Programming language is `Ruby`

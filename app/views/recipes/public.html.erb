@@ -6,3 +6,4 @@
     <%= render(partial: 'recipe', collection: @recipes, locals: { public: true }) %>
   <% end %>
 </section>
+<%= render(partial: 'partials/pagination', locals: { list: @recipes }) %>
