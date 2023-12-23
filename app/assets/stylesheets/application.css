@@ -201,7 +201,9 @@ form a {
 .block a,
 .recipe a,
 .details a,
-.food a {
+.food a,
+.pagination a,
+.pagination span {
   font-weight: bolder;
   padding: 5px 10px;
   border-radius: 5px;
@@ -262,7 +264,8 @@ form a {
   flex-direction: column;
 }
 
-.details div {
+.details div,
+.pagination {
   display: flex;
   justify-content: space-between;
 }
@@ -304,6 +307,10 @@ form a {
   background-color: var(--label-color);
 }
 
+.pagination span {
+  background-color: var(--border-color);
+}
+
 @media only screen and (min-width: 768px) {
   .navigation h1 {
     font-size: 2rem;
@@ -318,7 +325,9 @@ form a {
   .block a,
   .recipe a,
   .details a,
-  .food a {
+  .food a,
+  .pagination a,
+  .pagination span {
     font-size: 1rem;
     padding: 10px 25px;
   }
@@ -328,7 +337,8 @@ form a {
   .title a:hover,
   .block a:hover,
   .recipe a:hover,
-  .details a:hover {
+  .details a:hover,
+  .pagination a:hover {
     color: var(--page-color);
     background-color: var(--active-color);
   }
