@@ -7,10 +7,11 @@ class RecipeFoodsController < ApplicationController
   end
 
   def create
-    authorize!(:create, @recipe_food.food)
+    authorize!(:create, @recipe_food.food) if @recipe_food.food
     if @recipe_food.save
-      redirect_to(recipe_path(@recipe), alert: 'Ingredient successfully added')
+      redirect_to(recipe_path(@recipe), notice: 'Ingredient successfully added')
     else
+      @foods = Food.accessible_by(current_ability)
       flash.now[:errors] = @recipe_food.errors.full_messages
       render(:new, status: :unprocessable_entity)
     end
@@ -18,7 +19,7 @@ class RecipeFoodsController < ApplicationController
 
   def destroy
     @recipe_food.destroy
-    redirect_to(recipe_path(@recipe), alert: 'Ingredient successfully deleted')
+    redirect_to(recipe_path(@recipe), notice: 'Ingredient successfully deleted')
   end
 
   private
