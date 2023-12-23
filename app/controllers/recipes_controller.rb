@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: %i[show public]
   load_and_authorize_resource
   skip_authorize_resource only: :public
 
@@ -28,7 +29,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to(recipes_path, alert: 'Recipe successfully deleted')
+    redirect_to(recipes_path, notice: 'Recipe successfully deleted')
   end
 
   private

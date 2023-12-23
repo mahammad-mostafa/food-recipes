@@ -1,7 +1,9 @@
-<h2>My foods</h2>
-<%= link_to('New', new_food_path) if can?(:read, Food) %>
-<section>
-  <div>
+<div class="title">
+  <h2>My foods</h2>
+  <%= link_to('New food', new_food_path) if can?(:read, Food) %>
+</div>
+<section class="table">
+  <div class="label">
     <span>Food</span><span>Unit</span><span>Price</span><span>Action</span>
   </div>
   <% if @foods.length.zero? %>

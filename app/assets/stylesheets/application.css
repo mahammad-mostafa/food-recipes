@@ -13,3 +13,327 @@
  *= require_tree .
  *= require_self
  */
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --label-color: #444;
+  --border-color: #222;
+  --block-color: #111;
+  --page-color: #000;
+  --text-color: #aaa;
+  --title-color: #ddd;
+  --active-color: #fff;
+  --error-color: #a00;
+  --success-color: #0a0;
+}
+
+body {
+  height: 100vh;
+  padding: 60px 0 40px;
+  color: var(--text-color);
+  font: 14px tahoma, serif;
+  background-color: var(--page-color);
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  background-color: var(--page-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  line-height: 40px;
+  text-align: center;
+  background-color: var(--page-color);
+  border-top: 1px solid var(--border-color);
+}
+
+main {
+  max-width: 1000px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px 10px;
+  overflow-y: scroll;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  border: none;
+  margin: 25px auto;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+input,
+select,
+textarea,
+form a {
+  font-size: 1rem;
+  line-height: 30px;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+input,
+select,
+textarea {
+  appearance: none;
+  color: var(--page-color);
+  border: none;
+  outline: none;
+}
+
+textarea {
+  height: 50px;
+  resize: none;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+form label {
+  font-size: 1rem;
+  margin-bottom: -10px;
+}
+
+form em {
+  color: var(--error-color);
+}
+
+form a {
+  text-align: center;
+  color: var(--page-color);
+  background-color: var(--text-color);
+}
+
+.navigation {
+  max-width: 1000px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.navigation h1 {
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.menu {
+  gap: 10px;
+  text-align: center;
+}
+
+.success,
+.errors {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-style: italic;
+  text-align: center;
+  color: var(--title-color);
+  background-color: var(--success-color);
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.errors {
+  background-color: var(--error-color);
+}
+
+.title,
+.block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title h2,
+.block h2 {
+  font-size: 1.6rem;
+  color: var(--title-color);
+}
+
+.title a,
+.block a,
+.recipe a,
+.details a,
+.food a {
+  font-weight: bolder;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--block-color);
+  background-color: var(--text-color);
+}
+
+.block,
+.recipe,
+.details p {
+  padding: 10px;
+  align-items: flex-start;
+  background-color: var(--block-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.block a {
+  align-self: flex-start;
+  margin-top: 25px;
+}
+
+.list {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.empty {
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--label-color);
+  margin: 5% auto;
+}
+
+.recipe {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe h3 {
+  font-size: 1.4rem;
+  color: var(--title-color);
+}
+
+.recipe a {
+  display: inline-block;
+  margin-top: 25px;
+  margin-inline-end: 10px;
+}
+
+.details {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.details div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details span {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.table {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.label,
+.food {
+  display: flex;
+  gap: 2px;
+  overflow: hidden;
+  color: var(--title-color);
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.label {
+  background-color: var(--page-color);
+}
+
+.label span,
+.food h3,
+.food span {
+  width: 100%;
+  padding: 10px;
+}
+
+.label span {
+  background-color: var(--label-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation h1 {
+    font-size: 2rem;
+  }
+
+  .menu {
+    gap: 20px;
+    font-size: 1rem;
+  }
+
+  .title a,
+  .block a,
+  .recipe a,
+  .details a,
+  .food a {
+    font-size: 1rem;
+    padding: 10px 25px;
+  }
+
+  input[type=submit]:hover,
+  form a:hover,
+  .title a:hover,
+  .block a:hover,
+  .recipe a:hover,
+  .details a:hover {
+    color: var(--page-color);
+    background-color: var(--active-color);
+  }
+
+  .menu a:hover {
+    color: var(--active-color);
+  }
+}

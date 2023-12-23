@@ -1,6 +1,8 @@
-<article>
+<article class="food">
     <h3><%= recipe_food.food.name.capitalize %></h3>
     <span><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></span>
     <span>$<%= recipe_food.quantity * recipe_food.food.price %></span>
-    <%= link_to('Delete', recipe_recipe_food_path(recipe_food.recipe), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) if can?(:destroy, recipe_food) %>
+    <% if can?(:destroy, recipe_food) %>
+    <span><%= link_to('Delete', recipe_recipe_food_path(recipe_food.recipe, recipe_food), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) %></span>
+    <% end %>
 </article>
