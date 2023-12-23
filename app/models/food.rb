@@ -5,4 +5,5 @@ class Food < ApplicationRecord
   validates :quantity, numericality: { only_integer: true, greater_than: 0 }
   has_many :recipe_foods, dependent: :destroy
   belongs_to :user
+  paginates_per 3
 end
