@@ -9,3 +9,4 @@
     <%= render(partial: 'recipe', collection: @recipes, locals: { public: false }) %>
   <% end %>
 </section>
+<%= render(partial: 'partials/pagination', locals: { list: @recipes }) %>
