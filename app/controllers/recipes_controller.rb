@@ -3,10 +3,16 @@ class RecipesController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource only: :public
 
-  def index; end
+  def index
+    @recipes = Recipe.includes(:user).accessible_by(current_ability)
+  end
+
+  def show
+    @recipe = Recipe.includes(recipe_foods: { food: :user }).accessible_by(current_ability).find(params[:id])
+  end
 
   def public
-    @recipes = Recipe.accessible_by(current_ability, :browse).order(id: :desc)
+    @recipes = Recipe.includes(%i[user recipe_foods]).accessible_by(current_ability, :browse).order(id: :desc)
     render(:public)
   end
 
