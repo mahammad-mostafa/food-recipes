@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   skip_authorize_resource only: :public
 
   def index
-    @recipes = Recipe.includes(:user).accessible_by(current_ability)
+    @recipes = Recipe.includes(:user).accessible_by(current_ability).page(params[:page])
   end
 
   def show
@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
 
   def public
     @recipes = Recipe.includes(%i[user recipe_foods]).accessible_by(current_ability, :browse).order(id: :desc)
+      .page(params[:page])
     render(:public)
   end
 

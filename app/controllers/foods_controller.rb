@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   skip_authorize_resource only: :shop
 
   def index
-    @foods = Food.includes(:user).accessible_by(current_ability)
+    @foods = Food.includes(:user).accessible_by(current_ability).page(params[:page])
   end
 
   def shop
