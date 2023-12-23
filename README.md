@@ -42,14 +42,14 @@ Pagination using `kaminari` gem.
 - Tests done with `RSpec`
 
 📌 **Key Features:**
-- Responsive layout to all screen sizes
+- Responsive layout with all screen sizes
 - User authentication is required first (`email` / `password`)
 - Navigation menu with links (`home` / `All recipes` / `My foods` / `My recipes`)
 - Only public recipes can be viewed by all users
 - Each food item displays (`name` / `measurement` / `price`)
 - Every recipe contains several food items
 - Each recipe displays (`name` / `description`) & time for (`preparation` / `cooking`)
-- Recipes can be made public or private
+- Recipes can be made public for all visitors or private
 - Any user can delete his own recipes & food items
 - Recipe owners can add their own food items as ingredients
 - Users generates a shopping list with all unused foods items from their own recipes
