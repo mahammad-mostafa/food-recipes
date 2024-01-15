@@ -36,6 +36,9 @@ Authorization using `CanCanCan` gem.
 Pagination using `kaminari` gem.
 Optimized queries with `bullet` gem.
 
+📌 **Live Demo:**
+- Check the project live from [here](https://food-recipes-c54u.onrender.com)
+
 📌 **Tech Stack:**
 - Programming language is `Ruby`
 - Database used is `PostgreSQL`
