@@ -1,0 +1,12 @@
+<div class="title">
+  <h2>My recipes</h2>
+  <%= link_to('New recipe', new_recipe_path) if can?(:read, Recipe) %>
+</div>
+<section class="list">
+  <% if @recipes.length.zero? %>
+    <%= render(partial: 'partials/empty', locals: { name: 'recipes' }) %>
+  <% else %>
+    <%= render(partial: 'recipe', collection: @recipes, locals: { public: false }) %>
+  <% end %>
+</section>
+<%= render(partial: 'partials/pagination', locals: { list: @recipes }) %>

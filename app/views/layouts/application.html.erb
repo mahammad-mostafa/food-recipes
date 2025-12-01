@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food Recipes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render('partials/menu') %>
+    <main>
+      <% if notice %><ul class="success"><li><%= notice %></li></ul><% end %>
+      <% if alert %><ul class="errors"><li><%= alert %></li></ul><% end %>
+      <%= yield %>
+    </main>
+    <footer><i>&copy; <%= Date.today.year %> All rights reserved</i></footer>
+  </body>
+</html>

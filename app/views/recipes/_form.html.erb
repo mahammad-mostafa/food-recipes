@@ -1,0 +1,12 @@
+<%= render(partial: 'partials/errors') %>
+<%= form_with(model: @recipe) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  <%= form.label :preparation_time %>
+  <%= form.number_field :preparation_time, min: 0.25, step: 0.25 %>
+  <%= form.label :cooking_time %>
+  <%= form.number_field :cooking_time, min: 0.25, step: 0.25 %>
+  <%= form.submit 'Store' %>
+<% end %>
